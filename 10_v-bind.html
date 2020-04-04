@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind 设置元素的属性</title>
+    <style>
+        .active {
+            border: 1px solid red;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc">
+        <img :src="imgSrc" v-bind:title="imgTitle+'!'">
+        <img :src="imgSrc" v-bind:class="isActive?'active':''">
+        <img :src="imgSrc" v-bind:class="{active:isActive}">
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                imgSrc: "http://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png",
+                imgTitle: "百度图片",
+                isActive: true
+            }
+
+        })
+    </script>
+</body>
+
+</html>

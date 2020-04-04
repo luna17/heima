@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if 根据表达值的真假,切换元素的显示和隐藏(操纵dom元素)</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="isShow">jidsdjslkjilkjoisjagnli</p>
+        <button @click="changeShow">切换show</button>
+        <p v-if="temperature>=40">热死了！</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                temperature:60
+            },
+            methods: {
+                changeShow: function () {
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
