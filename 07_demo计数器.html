@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="input_sum">
+        <button @click="sub">-</button>
+        <span>{{num}}</span>
+        <button @click="add">+</button>
+
+    </div>
+    <script>
+        var vue = new Vue({
+            el: "#input_sum",
+            data: {
+                num: 0
+            },
+            methods: {
+                add: function () {
+                    if (this.num >= 0 && this.num < 10) {
+                        this.num += 1
+                    }
+                    else console.log("别点了，数据上限为10！！！");
+                },
+                sub: function () {
+                    if (this.num > 0 && this.num <= 10) {
+                        this.num -= 1
+                    }
+                    else console.log("别点了，数据下限为0！！！");
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

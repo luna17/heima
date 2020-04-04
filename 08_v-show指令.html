@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show 根据表达值的真假,切换元素的显示和隐藏</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <p v-show="true">第一段文字</p>
+        </div>
+        <div>
+            <p v-show="isShow">第二段文字</p>
+        </div>
+        <div>
+            <p v-show="age>18">第三段文字</p>
+        </div>
+
+        <button @click="changeShow">第二段取反</button>
+    </div>
+    <script>
+        var vue = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                age: 19
+            },
+            methods: {
+                changeShow: function () {
+                    this.isShow = !this.isShow;
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
