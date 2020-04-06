@@ -1,28 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>基于vue的图片轮播</title>
     <script src="../js/vue.js"></script>
+    <style>
+        #app {
+            position: absolute;
+            background-color: #fff;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+        }
+
+        #app .pic {
+            display: block;
+            width: 700px;
+            height: 458px;
+        }
+
+        #app a {
+            text-decoration: none;
+            width: 45px;
+            height: 100px;
+            position: absolute;
+            top: 179px;
+            vertical-align: middle;
+        }
+
+        .left {
+            left: 15px;
+            text-align: left;
+            padding-right: 10px;
+        }
+
+        .right {
+            right: 15px;
+            text-align: right;
+            padding-left: 10px;
+        }
+    </style>
 </head>
+
 <body>
     <div id="app">
-        <img :src="imgArray[index]">
-        <a href="">上一张</a>
-        <a href="">下一张</a>
-        
-    </div>
-<script>
-var ap=new vue({
-    el:"#app",
-    data:{
-        imgArray:[],
-        index:0,
-        imgSrc:
+        <img class="pic" :src="imgArray[index]">
+        <a href="#" class="left" @click="prev" v-show="index!=0"><img src="images/prev.png" /></a>
+        <a href="#" class="right" @click="next" v-show="index<imgArray.length-1"><img src="images/next.png" /></a>
 
-    },
-})
-</script>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                imgArray: [
+                    "images/00.jpg",
+                    "images/01.jpg",
+                    "images/02.jpg",
+                    "images/03.jpg",
+                    "images/04.jpg",
+                    "images/05.jpg",
+                    "images/06.jpg"
+                ],
+                index: 0,
+            },
+            methods: {
+                prev: function () {
+                    this.index--;
+                },
+                next: function () {
+                    this.index++;
+                }
+            }
+        })
+    </script>
 </body>
+
 </html>

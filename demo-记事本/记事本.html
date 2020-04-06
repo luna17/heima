@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 增加功能 -->
+        <input type="text" v-model="inputValue" @keyup.enter="addM">
+        <h2>{{inputValue}}</h2>
+        <ul>
+
+            <li v-for="(item,index) in message">
+                <span>{{index+1}}</span>
+                {{item}}
+                <!-- 删除功能 -->
+                <button @click="deleteM(index)">x</button></li>
+        </ul>
+        <!-- 统计个数 -->
+        <!-- 隐藏 -->
+        <span v-if="message.length!=0">{{message.length}}
+
+        </span>
+        <span>
+            <!-- 清空 -->
+            <!-- 隐藏 -->
+            <button @click="clear" v-if="message.length!=0">情空</button>
+
+        </span>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: [
+                    "吃饭", "睡觉", "学习"
+                ],
+                inputValue: "好好学习天天向上",
+            },
+            methods: {
+                addM: function () {
+                    this.message.push(this.inputValue);
+                },
+                deleteM: function (index) {
+                    console.log(index);
+                    this.message.splice(index, 1);
+                },
+                clear: function () {
+                    this.message = [];
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

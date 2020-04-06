@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点我按钮" @click="doit">
+
+        <input type="text" value="点我" @keyup.enter="say">
+    </div>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            methods:{
+                doit:function(){
+                    console.log("写代码");
+                },
+                say:function(){
+                    console.log(666);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
