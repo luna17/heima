@@ -16,9 +16,9 @@
 <body>
     <div id="app">
         <img v-bind:src="imgSrc">
-        <img :src="imgSrc" v-bind:title="imgTitle+'!'">
-        <img :src="imgSrc" v-bind:class="isActive?'active':''">
-        <img :src="imgSrc" v-bind:class="{active:isActive}">
+        <img :src="imgSrc" :title="imgTitle+'!'">
+        <img :src="imgSrc" :class="isActive?'active':''">
+        <img :src="imgSrc" :class="{active:isActive}">
 
     </div>
     <script>
