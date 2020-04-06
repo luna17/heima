@@ -8,10 +8,21 @@
 </head>
 <body>
     <div id="app">
-        <img :src="imgSrc">
+        <img :src="imgArray[index]">
         <a href="">上一张</a>
         <a href="">下一张</a>
         
     </div>
+<script>
+var ap=new vue({
+    el:"#app",
+    data:{
+        imgArray:[],
+        index:0,
+        imgSrc:
+
+    },
+})
+</script>
 </body>
 </html>
